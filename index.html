@@ -1,136 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>gsap animations</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="logo"></div>
-  <div class="header">
-    <div class="letters">
-      <div>a</div>
-      <div>r</div>
-      <div>t</div>
-      <div>w</div>
-    </div>
-    <div class="letters">
-      <div>o</div>
-      <div>r</div>
-      <div>k</div>
-      <div>s</div>
-    </div>
-
-  </div>
-
-  <div class="website-content">
-    <div class="img-holder">
-      <img src="https://images.pexels.com/photos/1846422/pexels-photo-1846422.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-    </div>
-
-    <div class="content-holder">
-      <div class="row">
-        <h1>History</h1>
-      </div>
-      <div class="row">
-        <div class="img">
-          <img src="https://images.pexels.com/photos/17591304/pexels-photo-17591304/free-photo-of-narrow-alley-along-historic-townhouses.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" alt="">
-        </div>
-        <div class="img">
-          <img src="https://images.pexels.com/photos/15760122/pexels-photo-15760122/free-photo-of-a-man-on-a-bicycle-rides-past-a-building.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" alt="">
-        </div>
-        <div class="img">
-          <img src="https://images.pexels.com/photos/15760122/pexels-photo-15760122/free-photo-of-a-man-on-a-bicycle-rides-past-a-building.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" alt="">
-        </div>
-      </div>
-      <div class="row">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex suscipit optio corrupti et explicabo. Consequatur.
-        </p>
-      </div>
-      <div class="row">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, libero? Eveniet, obcaecati? Eos nobis labore magnam quae repellat nulla. Quos.
-        </p>
-      </div>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    document.addEventListener("DOMContentLoaded", function(){
-      const contentHolderHeight = document.querySelector(".content-holder").offsetHeight
-      const imgHolderHeight =window.innerHeight;
-      const additionalScrollHeight = window.innerHeight;
-
-      const totalBodyHeight = contentHolderHeight + imgHolderHeight + additionalScrollHeight
-
-      document.body.style.height = `${totalBodyHeight}px`
-    })
-
-
-    ScrollTrigger.create({
-      trigger: ".website-content",
-      start: "-0.1% top",
-      end: "bottom bottom",
-      onEnter: ()=>{
-        gsap.set(".website-content", {position: "absolute", top: "195%"})
-      },
-      onLeaveBack: ()=>{
-        gsap.set(".website-content", {position: "fixed", top: "0"})
-
-      }
-    })
-
-    gsap.to(".header .letters:first-child", {
-      x: ()=> -innerWidth * 3,
-      scale: 10,
-      ease: "power2.inOut",
-      scrollTrigger: {
-        start: "top top",
-        end: `+=200%`,
-        scrub:1
-      }
-    })
-    gsap.to(".header .letters:last-child", {
-      x: ()=> innerWidth * 3,
-      scale: 10,
-      ease: "power2.inOut",
-      scrollTrigger: {
-        start: "top top",
-        end: `+=200%`,
-        scrub:1
-      }
-    })
-
-    gsap.to(".img-holder", {
-      rotation: 0,
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      ease: "power2.inOut",
-      scrollTrigger: {
-        start: "top top",
-        end: `+=200%`,
-        scrub:1
-      }
-    })
-    gsap.to(".img-holder img", {
-      scale: 1,
-     
-      ease: "power2.inOut",
-      scrollTrigger: {
-        start: "top top",
-        end: `+=200%`,
-        scrub:1
-      }
-    })
-
-
-
-  </script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
